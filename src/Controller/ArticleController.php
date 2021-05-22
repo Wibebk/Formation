@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Twig\Environment;
 
 class ArticleController extends AbstractController
 {
@@ -25,7 +27,7 @@ class ArticleController extends AbstractController
         if (!$article) {
             throw $this->createNotFoundException(sprintf('No article for slug "%s"', $slug));
         }
-
+        dump($article);die;
         $comments = [
             'I ate a normal rock once. It did NOT taste like bacon!',
             'Woohoo! I\'m going on an all-asteroid diet!',
